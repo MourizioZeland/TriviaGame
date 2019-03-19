@@ -1,0 +1,50 @@
+p
+{
+    font-size: 120px;
+    text-align: center;
+   
+}
+#one
+{
+
+    background: white;
+    
+    margin-top: 50px;
+}
+#buttons
+{
+    margin-left: 50px;
+   margin:auto;
+}
+.btn
+{
+    margin: 10px;
+    z-index: 1;
+    
+    
+    
+}
+#countdown
+{
+    font-size: 50px;
+    text-align: center;
+   
+}
+#questionone
+{
+   text-align: center;
+ 
+   
+    
+}
+#few
+{
+   
+   width: 150px;
+   margin-left:500px;
+   z-index: 4;
+}
+#clicks1
+{
+float:left;
+}
