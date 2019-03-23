@@ -1,40 +1,44 @@
 $(document).ready(function () {
+   
     var counter = 0;
-    var reset = 0;
-    var correct = 0;
+    var reset = 15;
+    var clickSound = new Audio();
     var wrong = 0;
     var questionNumber = 0;
+    var correctAnswer;
+    var userGuess = [];
+    var interval;
 
+    
+    // Counter
+    
+    
+     interval = setInterval(function () {
+       
+        questionGenerator();
+       
+    
+    //Counter on DOM
 
-
-
-    //container for remaining time
-    var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
-    var interval = setInterval(function () {
-        var now = new Date().getTime();
-        var t = countDownDate - now;
-        var seconds = Math.floor((t % (1000 * 16) - 1) / 1000);
-        var counter = 0;
-
-        //countdown on html
-
-        $("#countdown").html("Time Remaining: " + seconds);
-        //coditional for counter to stop at zero
-        if (seconds === counter) {
-
-            clearInterval(interval);
-
+    $("#countdown").html("Time Remaining: " + reset);
+        
+    //conditional for counter to stop at zero
+        if (reset === counter) {
+            reset=15;
             document.getElementById("few").src = "https://media.giphy.com/media/10GDCdNoaefngs/giphy.gif";
-
-
+        }
+         else{ 
+            reset--;
+            document.getElementById("few").src = "https://media.giphy.com/media/3THWzyYHDHpIY/giphy.gif";
         }
 
     }, 1000);
-
+   
     //questions and array
-    var questionBank = [
-        {
-            question: "How many times does a heart beat in a lifetime?",
+   
+    var questionBank = ["How many times does a heart beat in a lifetime?","A broken heart can:","Where in your chest is your heart?","How many gallons of blood does your heart pump each day?","When was the first successful human heart transplant?","How many chambers are in the heart?"]
+    var choice =[{  
+            
             choice: {
                 a: "25 million ",
                 b: "2.5 billion ",
@@ -44,7 +48,7 @@ $(document).ready(function () {
             answer: "b"
         },
         {
-            question: "A broken heart can:",
+          
             choice: {
                 a: "Hurt",
                 b: "Heal all time ",
@@ -54,7 +58,7 @@ $(document).ready(function () {
             answer: "a"
         },
         {
-            question: "Where in your chest is your heart?",
+            
             choice: {
                 a: "left",
                 b: "right",
@@ -64,7 +68,7 @@ $(document).ready(function () {
             answer: "c"
         },
         {
-            question: "How many gallons of blood does your heart pump each day?",
+         
             choice: {
                 a: "2000",
                 b: "15,000",
@@ -74,7 +78,7 @@ $(document).ready(function () {
             answer: "a"
         },
         {
-            question: "When was the first successful human heart transplant?",
+            
             choice: {
                 a: "1793",
                 b: "1967",
@@ -84,7 +88,7 @@ $(document).ready(function () {
             answer: "b"
         },
         {
-            question: "How many chambers are in the heart??",
+            
             choice: {
                 a: "3",
                 b: "8",
@@ -96,20 +100,106 @@ $(document).ready(function () {
 
 
     ];
+   
 
-
-function makeOver(){
+   
+    //ClickBank  
+   $(".btn").click(function(){
+   
+   });
+    //Choice A
+    $("#a").click(function(){
+        var answer = $("#a");
+        answer = "a";
+        if(answer === correctAnswer){
+            document.getElementById("few").src = "https://media.giphy.com/media/Go30VSSpSm0c8/giphy.gif";
+            }
+        else{
+            document.getElementById("few").src = "https://media.giphy.com/media/3o6Mb43PiNTQS5WgLu/giphy.gif";
+        
+        }
+        
+    });
+    //Choice B
+    $("#b").click(function(userGuess){
+        var answer = $("#b");
+        answer = "b";
+        if(answer === correctAnswer){
+            
+            document.getElementById("few").src = "https://media.giphy.com/media/Go30VSSpSm0c8/giphy.gif";
+        }
+        else{
+            document.getElementById("few").src = "https://media.giphy.com/media/3o6Mb43PiNTQS5WgLu/giphy.gif";
+        }
+        
+    });
+    //Choice C
+    $("#c").click(function(userGuess){
+        var answer = $("#c");
+        answer = "c";
+        if(answer === correctAnswer){
+            document.getElementById("few").src = "https://media.giphy.com/media/Go30VSSpSm0c8/giphy.gif";
+        }
+        else{
+            document.getElementById("few").src = "https://media.giphy.com/media/3o6Mb43PiNTQS5WgLu/giphy.gif";
+        }
+    });
+    //Choice D
+    $("#d").click(function(userGuess){
+        var answer = $("#d");
+        answer = "d";
+        if(answer === correctAnswer){
+            document.getElementById("few").src = "https://media.giphy.com/media/Go30VSSpSm0c8/giphy.gif";
+        }
+        else{
+            document.getElementById("few").src = "https://media.giphy.com/media/3o6Mb43PiNTQS5WgLu/giphy.gif";  
+            
+        }
+    });
      
-    var currentQuestion = questionBank[questionNumber];
+
+  
+    $("#Intiate").click(function(){
+        
+        questionGenerator();
+        reset=15;
+        
+        questionCounter++;
+    });
     
-$("#quiz").text(currentQuestion.question);
-$("#results").append(currentQuestion.choice.a);
-$("#results").append(currentQuestion.choice.b);
-$("#results").append(currentQuestion.choice.c);
+    
+    //Where the questions generator and are put to DOM
+    function questionGenerator() {
+        
+        correctAnswer = (choice[questionCounter].answer);
+        $('#gameQuestion').text(questionBank[questionCounter]);
+        $("#a").text(choice[questionCounter].choice.a);
+        $("#b").text(choice[questionCounter].choice.b);
+        $("#c").text(choice[questionCounter].choice.c);
+        $("#d").text(choice[questionCounter].choice.d);
+    
+  
+  
+    }
+   
 
-$("#results").append(currentQuestion.choice.d);
+    function reset(){
+        reset --;
 
+    }
+
+
+    function nextQuestion(){
+        
+      
+    }
+    var questionCounter=0;
+    function questionCounter(){
+    if(questionCounter > 5){
+    questionBank++;
+    
+    }
 }
-makeOver();
+
  
 });

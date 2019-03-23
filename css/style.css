@@ -2,7 +2,7 @@ p
 {
     font-size: 120px;
     text-align: center;
-   
+    font-style: sans;
 }
 #one
 {
@@ -41,10 +41,15 @@ p
 {
    
    width: 150px;
-   margin-left:500px;
+  
    z-index: 4;
 }
 #clicks1
 {
 float:left;
+}
+#picture
+{
+    z-index: 1;
+   margin:50px;
 }

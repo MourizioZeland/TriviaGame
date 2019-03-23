@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,18 +11,22 @@
 			<link rel="stylesheet" type="text/css" href="css/style.css">
 			<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
             <script src="javascript/app.js"></script>
+            
     </head>
    
         <body background = "image/blackorwhite.jpeg"  >
 
             
             <div class="container">
-                <div class="mainArea">
-                    <div id="one">
+                <div class="row">
+                   
+                    <div id="one" class="col-md-12">
+                       
                         <div class="row">
                             
-                            <div id="" class="col-md-12">
-                                <p>Monday Trivia !</p>
+                            <div id="picture"  class="col-md-12">
+                                
+                                <p> Heart Me Trivia !</p>
                             </div>
 
                         </div>
@@ -38,25 +44,31 @@
 
                         </div>
                         <div class="row">
-                            
-                            <div id="results" class="col-md-12">
+                            <div class="col-md-5"></div>
+                            <div id="results" class="col-md-2">
                                 
                                 <img id="few">
 
                             
                             </div>
-
+                            <div class="col-md-5"></div>
                         </div>
                         
                         <div class="row">
+                            <div class="col-md-2"></div>
                             
-                            <div id = "submit" class="col-md-2">
+                            <div id = "submit" class="col-md-8">
                                 <ul>
-                                        <button type="button" class="btn btn-warning" >Submit<span id="click1"></span></button>
+                                    <button type="button" class="btn btn-secondary btn-lg btn-block" id = "gameQuestion"></button>
+                                    <button type="button" class="btn btn-secondary btn-lg btn-block" id = "a" ></button>
+                                    <button type="button" class="btn btn-secondary btn-lg btn-block" id = "b"></button>
+                                    <button type="button" class="btn btn-secondary btn-lg btn-block" id ="c"  ></button>
+                                    <button type="button" class="btn btn-secondary btn-lg btn-block"id = "d" ></button>
+                                    <button type="button" class="btn btn-warning" id="Intiate" >Start / Next</button>
                           
                                 </ul>
                             </div>
-                        
+                            <div class="col-md-2"></div>
                         </div>
                     </div>        
                 </div>
